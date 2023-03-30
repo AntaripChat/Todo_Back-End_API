@@ -13,7 +13,7 @@ const userSchema = new mongo.Schema({
         type:String,
         required:true,
     }
-});
+},{timestamps:true});
 
 const userModel = mongo.model('User',userSchema);
 
