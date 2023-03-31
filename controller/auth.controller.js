@@ -24,12 +24,12 @@ exports.signUp = async (req,res) =>{
 exports.signin = async (req,res) =>{
     const user = await User.findOne({email:req.body.email});
     if(user === null){
-        return res.status(400).send({message:"invalid User"});
+        return res.status(400).send({message:"invalid creds"});
     };
 
     const isPasswordValid = bcrypt.compareSync(req.body.password,user.password);
     if(!isPasswordValid){
-        return res.status(400).send({message:"invalid Password"});
+        return res.status(400).send({message:"invalid creds"});
     };
 
     let token = jwt.sign({email:user.email},secret,{expiresIn:86400});
