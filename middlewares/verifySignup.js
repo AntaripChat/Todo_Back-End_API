@@ -10,7 +10,9 @@ const verifySignup = async (req,res,next) =>{
     };
 
     let email = await User.findOne({email:req.body.email});
+
     console.log(email);
+    
     if(email != null){
         return res.status(400).send({message:"Email already exists"});
     };

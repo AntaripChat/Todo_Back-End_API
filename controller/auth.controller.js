@@ -3,6 +3,8 @@ const User = require('../model/user.model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const {secret} = require('../config/auth.config');
+const {sendEmail} = require('../utlis/sendMail');
+const {userRegistration} = require('../script/mailScript')
 
 
 exports.signUp = async (req,res) =>{
@@ -11,13 +13,21 @@ exports.signUp = async (req,res) =>{
         email:req.body.email,
         password:bcrypt.hashSync(req.body.password, 8)
     };
+    console.log(userObj);
     try{
         const user = await User.create(userObj);
-        //console.log(user);
         res.status(201).send(`${user.name} your data saved`)
+        console.log(user.email);
+
+        const {subject,html} = userRegistration(user);
+
+        sendEmail([user.email],subject,html);
+        
+        //sendEmail(user.email,"account",`hey ${user.name} your account has been created, thank you`)
+        
     }catch(err){
-        //console.log(err);
-        res.status(500).send({message:"Some Server Error"});
+        console.log(err);
+        res.status(500).send({message:"Some Server Error",err});
     }
 };
 

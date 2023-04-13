@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "devStart": "nodemon server",
-    "start":"node server.js"
+    "start": "node server.js"
   },
   "author": "Antarip Chatterjee",
   "license": "ISC",
@@ -16,6 +15,7 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.3",
+    "nodemailer": "^6.9.1",
     "nodemon": "^2.0.22"
   }
 }
