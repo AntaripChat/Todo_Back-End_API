@@ -7,12 +7,12 @@ const sendEmail= async (email,subject,html) =>{
         host:'smtp.gmail.com',
 
         auth:{
-            user:"bongcoding@gmail.com",
-            pass:"eafocchnrrrclgoa",
+            user:"bongcodinga@gmail.com",
+            pass:"eafocchnrrrclgoaa",
         }
     });
     let mailDetails = {
-        from: "bongcoding@gmail.com",
+        from: "bongcodinga@gmail.com",
         to:email,
         subject,
         html,
