@@ -12,7 +12,9 @@ const userSchema = new mongo.Schema({
     password:{
         type:String,
         required:true,
-    }
+    },
+    otp : Number,
+    otp_expiry : Date,
 },{timestamps:true});
 
 const User = mongo.model('Users',userSchema);

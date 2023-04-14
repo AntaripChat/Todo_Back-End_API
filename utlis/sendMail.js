@@ -7,8 +7,8 @@ const sendEmail= async (email,subject,html) =>{
         host:'smtp.gmail.com',
 
         auth:{
-            user:"bongcodingant@gmail.com",
-            pass:"eafocchnrrrclgoaant",
+            user:"bongcoding@gmail.com",
+            pass:"eafocchnrrrclgoa",
         }
     });
     let mailDetails = {
